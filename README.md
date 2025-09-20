@@ -39,8 +39,8 @@ Lexi-Core is a cutting-edge AI-powered legal assistant that combines advanced OC
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/legal-navigator.git
-   cd legal-navigator
+   git clone https://github.com/amitava121/Lexi-Core.git
+   cd Lexi-Core
    ```
 
 2. **Install Python dependencies**
