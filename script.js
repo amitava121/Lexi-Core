@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const WELCOME_TEXT = "Hello! I'm Lexi-Core. You can ask a question or upload a legal document (PDF/Image) for analysis.";
     
     // Google Gemini API configuration (primary)
-    const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; // Replace with your actual API key
+    const GEMINI_API_KEY = 'AIzaSyAJnueuXZT7BENDH5J5jaKptRvO3c0FKac'; // Replace with your actual API key
     const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
     
     // Court Listener API (free legal database)
@@ -1456,10 +1456,11 @@ ${analysis.risks.length > 0 ?
 ---
 
 **📊 ANALYSIS STATS:**
-• **Text Quality:** ${textResult.confidence > 80 ? 'Excellent' : textResult.confidence > 60 ? 'Good' : textResult.confidence > 40 ? 'Fair' : 'Poor'}${textResult.readableRatio ? ` (${textResult.readableRatio}% readable)` : ''}
+• **Text Quality:** ${textResult.confidence > 90 ? 'Excellent' : textResult.confidence > 75 ? 'Very Good' : textResult.confidence > 60 ? 'Good' : textResult.confidence > 45 ? 'Fair' : 'Poor'} (${textResult.confidence}% confidence)${textResult.raw_confidence ? ` [Enhanced from ${textResult.raw_confidence}%]` : ''}
 • **Content Length:** ${textResult.extractedText.length} characters
-• **OCR Mode:** ${textResult.method ? textResult.method.includes('(') ? textResult.method.split('(')[1].replace(')', '') : 'auto' : 'auto'}${textResult.qualityScore ? ` (score: ${textResult.qualityScore})` : ''}
-• **Server Time:** ${typeof textResult.duration_ms !== 'undefined' ? textResult.duration_ms + ' ms' : 'n/a'}
+• **OCR Method:** ${textResult.method || 'auto'}${textResult.quality_score ? ` (quality: ${textResult.quality_score})` : ''}
+• **Text Readability:** ${textResult.readable_ratio ? `${Math.round(textResult.readable_ratio * 100)}% clean text` : 'Not measured'}
+• **Processing Time:** ${textResult.processing_time_ms || textResult.duration_ms || 'n/a'}${typeof textResult.processing_time_ms === 'number' ? ' ms' : ''}
 • **Key Elements:** ${analysis.keyFindings.length} items found
 
 **🔍 Would you like me to explain any specific part of what I found in your document?**`;
