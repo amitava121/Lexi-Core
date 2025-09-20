@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const WELCOME_TEXT = "Hello! I'm Lexi-Core. You can ask a question or upload a legal document (PDF/Image) for analysis.";
     
     // Google Gemini API configuration (primary)
-    const GEMINI_API_KEY = 'AIzaSyAJnueuXZT7BENDH5J5jaKptRvO3c0FKac'; // Replace with your actual API key
+    const GEMINI_API_KEY = 'Replace with your actual API key'; // Replace with your actual API key
     const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
     
     // Court Listener API (free legal database)
