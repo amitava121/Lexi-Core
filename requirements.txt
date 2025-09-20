@@ -1,0 +1,19 @@
+# Legal Navigator Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core OCR engines
+paddlepaddle>=2.4.0
+paddleocr>=2.7.0
+easyocr>=1.7.0
+
+# Image processing
+opencv-python>=4.8.0
+pillow>=10.0.0
+numpy>=1.24.0
+
+# Web server
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Additional utilities
+requests>=2.31.0

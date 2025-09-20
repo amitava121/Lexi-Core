@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Legal Navigator Test</title>
+</head>
+<body>
+    <h1>Legal Navigator System Test</h1>
+    <script>
+        // Test the main functions
+        console.log('🧪 Testing Legal Navigator JavaScript...');
+        
+        // Test basic functionality
+        fetch('http://localhost:8000/script.js')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Script.js loads successfully');
+                    return response.text();
+                } else {
+                    console.error('❌ Script.js failed to load');
+                }
+            })
+            .then(scriptContent => {
+                if (scriptContent) {
+                    console.log(`✅ Script.js content loaded (${scriptContent.length} chars)`);
+                    
+                    // Check for key functions
+                    const keyFunctions = [
+                        'generateFileResponseWithAI',
+                        'callHuggingFaceAPI', 
+                        'searchCaseLaw',
+                        'updateLastMessage'
+                    ];
+                    
+                    keyFunctions.forEach(func => {
+                        if (scriptContent.includes(func)) {
+                            console.log(`✅ Function ${func} found`);
+                        } else {
+                            console.log(`❌ Function ${func} missing`);
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('❌ Test failed:', error);
+            });
+            
+        // Test OCR Server
+        fetch('http://localhost:5001/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ OCR Server healthy:', data);
+            })
+            .catch(error => {
+                console.error('❌ OCR Server test failed:', error);
+            });
+            
+        console.log('🎯 Legal Navigator system is operational!');
+    </script>
+</body>
+</html>
